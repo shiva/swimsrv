@@ -1,0 +1,83 @@
+{
+    "pools": [
+    {
+        "title": "Edmonds Community Centre",
+        "place": "Edmonds Community Centre",
+        "tags": [
+            "Southeast",
+        "Burnaby"
+            ],
+        "region": "Burnaby",
+        "latitude": 49.2294908,
+        "longitude": -123.0025753,
+        "information": "Edmonds Community Centre",
+        "telephone": "+1 (604) 297-4838",
+        "url": "http://www.romanbaths.co.uk",
+        "visited": true,
+        "address": "4603 Kingsway, Burnaby, BC V5H, Canada"
+    },
+    {
+        "title": "Margaret and Paul Savage Aquatic Centre",
+        "place": "Margaret and Paul Savage Aquatic Centre",
+        "tags": [
+            "SFU",
+        "Burnaby"
+            ],
+        "region": "Burnaby",
+        "latitude": 49.2780937,
+        "longitude": -122.9198833,
+        "information": "Margaret and Paul Savage Aquatic Centre",
+        "telephone": "+1 (604) 291-4906",
+        "url": "http://www.romanbaths.co.uk",
+        "visited": true,
+        "address": "Simon Fraser University, 8888 University Drive, Burnaby, British Columbia, V5A 1S6, Canada"
+    },
+    {
+        "title": "Eileen Dailly Leisure Pool and Fitness Centre",
+        "place": "Eileen Dailly Leisure Pool and Fitness Centre",
+        "tags": [
+            "North",
+        "Burnaby"
+            ],
+        "region": "Burnaby",
+        "latitude": 49.2832392,
+        "longitude": -123.0023265,
+        "information": "Eileen Dailly Leisure Pool and Fitness Centre",
+        "telephone": "+1 (604) 298-7946",
+        "url": "http://www.romanbaths.co.uk",
+        "visited": true,
+        "address": "240 Willingdon Avenue, Burnaby, BC V5C 5E9, Canada"
+    },
+    {
+        "title": "C.G. Brown Memorial Pool",
+        "place": "C.G. Brown Memorial Pool",
+        "tags": [
+            "Burnaby"
+            ],
+        "region": "Burnaby",
+        "latitude": 49.2503289,
+        "longitude": -122.9664375,
+        "information": "C.G. Brown Memorial Pool",
+        "telephone": "+1 (604) 297-4520",
+        "url": "http://www.romanbaths.co.uk",
+        "visited": true,
+        "address": "3702 Kensington Avenue, Burnaby, BC V5B 4Z6, Canada"
+    },
+    {
+        "title": "Bonsor Recreation Complex",
+        "place": "Bonsor Recreation Complex",
+        "tags": [
+            "Central",
+        "Burnaby"
+            ],
+        "region": "Burnaby",
+        "latitude": 49.2238,
+        "longitude": -122.9970476,
+        "information": "Bonsor Recreation Complex",
+        "telephone": "+1 604-297-4597",
+        "url": "http://www.romanbaths.co.uk",
+        "visited": true,
+        "address": "6550 Bonsor Avenue, Burnaby, BC V5H 2G8, Canada"
+    }
+    ]
+}

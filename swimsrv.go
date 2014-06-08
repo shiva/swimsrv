@@ -1,36 +1,73 @@
 package main
 
 import (
-    "code.google.com/p/gorest"
+    "encoding/json"
+    "fmt"
+    "github.com/ant0ine/go-json-rest/rest"
     "net/http"
+    "os"
 )
 
+type Objects struct {
+    Pools []Pool `json:"pools"`
+}
+
+/*
+   {
+       "title": "Edmonds Community Centre",
+       "place": "Edmonds Community Centre",
+       "tags": [
+       "Southeast",
+       "Burnaby"
+       ],
+       "region": "Burnaby",
+       "latitude": 49.2294908,
+       "longitude": -123.0025753,
+       "information": "Edmonds Community Centre",
+       "telephone": "+1 (604) 297-4838",
+       "url": "http://www.romanbaths.co.uk",
+       "visited": true,
+       "address": "4603 Kingsway, Burnaby, BC V5H, Canada"
+   },
+*/
+type Pool struct {
+    Title       string   `json:"title"`
+    Place       string   `json:"place"`
+    Tags        []string `json:"tags"`
+    Region      string   `json:"region"`
+    Latitude    float64  `json:"latitude"`
+    Longitude   float64  `json:"longitude"`
+    Information string   `json:"information"`
+    Tel         string   `json:"tel"`
+    Url         string   `json:"url"`
+    Visited     bool     `json:"visited"`
+    Address     string   `json:"address"`
+}
+
+func GetLocations(w rest.ResponseWriter, req *rest.Request) {
+    w.WriteJson(&spools)
+}
+
+var spools Objects
+
 func main() {
-    gorest.RegisterService(new(HelloService)) //Register our service
-    http.Handle("/", gorest.Handle())
-    http.ListenAndServe(":8000", nil)
-}
+    handler := rest.ResourceHandler{}
+    handler.SetRoutes(
+        &rest.Route{"GET", "/pools", GetLocations},
+    )
 
-//Service Definition
-type HelloService struct {
-    gorest.RestService `root:"/tutorial/"`
-    helloWorld         gorest.EndPoint `method:"GET" path:"/hello-world/" output:"string"`
-    sayHello           gorest.EndPoint `method:"GET" path:"/hello/{name:string}" output:"string"`
-    getJSON            gorest.EndPoint `method:"GET" path:"/get-json/" output:"ItemStore"
-}
+    file, e := os.Open("burnaby.json")
+    if e != nil {
+        fmt.Printf("File error: %v\n", e)
+        os.Exit(1)
+    }
 
-func (serv HelloService) HelloWorld() string {
-    return "Hello World"
-}
+    jsonParser := json.NewDecoder(file)
+    if err := jsonParser.Decode(&spools); err != nil {
+        fmt.Printf("Error parsing file: %v\n", err.Error())
+    }
 
-func (serv HelloService) SayHello(name string) string {
-    return "Hello " + name
-}
+    fmt.Printf("Results: %v\n", spools)
 
-type ItemStore struct {
-    Items []Item
-}
-
-func (serv HelloService) GetJSON() ItemStore {
-    return
+    http.ListenAndServe(":8080", &handler)
 }
